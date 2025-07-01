@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Estilos personalizados para o aplicativo */
+.ant-layout-header {
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+
+.ant-upload-drag {
+  border: 2px dashed #d9d9d9 !important;
+  border-radius: 8px !important;
+  background: #fafafa !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-upload-drag:hover {
+  border-color: #1890ff !important;
+  background: #f0f8ff !important;
+}
+
+.ant-upload-drag-icon {
+  font-size: 48px !important;
+  color: #1890ff !important;
+}
+
+.ant-table-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ant-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon {
+  background-color: #52c41a !important;
+  border-color: #52c41a !important;
+}
+
+.ant-steps-item-process .ant-steps-item-icon {
+  background-color: #1890ff !important;
+  border-color: #1890ff !important;
+}
+
+.ant-tag {
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+}
+
+.ant-btn {
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%) !important;
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(24, 144, 255, 0.2) !important;
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.3) !important;
+}
+
+.ant-alert {
+  border-radius: 8px !important;
+}
+
+.ant-typography h1,
+.ant-typography h2,
+.ant-typography h3,
+.ant-typography h4 {
+  color: #262626 !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 16px;
+  }
+  
+  .ant-card {
+    margin-bottom: 16px;
+  }
+  
+  .ant-table-wrapper {
+    font-size: 12px;
+  }
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Animações suaves */
+.ant-card,
+.ant-btn,
+.ant-upload-drag {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Cores personalizadas */
+.text-blue-600 {
+  color: #1890ff !important;
+}
+
+.text-red-500 {
+  color: #ff4d4f !important;
+}
+
+.text-orange-500 {
+  color: #fa8c16 !important;
+}
+
+.bg-gray-50 {
+  background-color: #fafafa !important;
+}
+
+/* Estilos para o header */
+.ant-layout-header.bg-white {
+  background: #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Customização do Steps */
+.ant-steps {
+  margin-bottom: 32px !important;
+}
+
+.ant-steps-item-title {
+  font-weight: 500 !important;
+}
+
+/* Melhorias na tabela */
+.ant-table-thead > tr > th {
+  background: #fafafa !important;
+  font-weight: 600 !important;
+  color: #262626 !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: #f5f5f5 !important;
+}
+
+/* Estilos para estatísticas */
+.stats-card .ant-card-body {
+  padding: 24px !important;
+}
+
+/* Upload area melhorada */
+.ant-upload-drag .ant-upload-text {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #262626 !important;
+}
+
+.ant-upload-drag .ant-upload-hint {
+  color: #8c8c8c !important;
+}
+
+
