@@ -29,7 +29,7 @@ import * as XLSX from 'xlsx';
 import responsibleMap from './responsibleMap';
 import './App.css';
 
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 const { Title, Text } = Typography;
 const { Step } = Steps;
 
@@ -128,14 +128,14 @@ function App() {
       // 1. Remover duplicatas da planilha atual
       const uniqueNewData = removeDuplicates(newData, processNumberColumn);
       
-      // 2. Adicionar coluna "Responsável" (vazia inicialmente)
-      const dataWithResponsible = uniqueNewData.map(row => ({
-        ...row,
-        'Responsável': ''
-      }));
+      // 2. Adicionar coluna "Responsável" (vazia inicialmente) - REMOVIDO
+      // const dataWithResponsible = uniqueNewData.map(row => ({
+      //   ...row,
+      //   'Responsável': ''
+      // }));
 
       // 3. Comparar com planilha antiga e adicionar coluna "Pendente"
-      const dataWithPending = compareAndAddPending(dataWithResponsible, oldData, processNumberColumn);
+      const dataWithPending = compareAndAddPending(uniqueNewData, oldData, processNumberColumn);
 
       // 4. Atribuir responsável com base na coluna 'Texto L=100'
       const finalData = assignResponsible(dataWithPending);
@@ -216,7 +216,7 @@ function App() {
           }
         }
       }
-      return row; // Retorna a linha sem alteração se nenhuma correspondência for encontrada
+       return row; // Retorna a linha sem alteração se nenhuma correspondência for encontrada
     });
   };
   const downloadProcessedFile = () => {
@@ -503,6 +503,10 @@ function App() {
           )}
         </div>
       </Content>
+
+      <Footer className="bg-gray-100 text-center py-4">
+        <Text type="secondary">Desenvolvido por William Simas</Text>
+      </Footer>
     </Layout>
   );
 }
