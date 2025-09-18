@@ -198,6 +198,12 @@ function App() {
     });
   };
 
+  // Função auxiliar para normalizar texto (remover acentos e converter para minúsculas)
+  const normalizeText = (text) => {
+    if (typeof text !== 'string') return '';
+    return text.normalize('NFD').replace(/[^\w\s]/gi, '').toLowerCase();
+  };
+
   // Atribuir responsável com base no Texto L=100
   const assignResponsible = (data) => {
     return data.map(row => {
@@ -207,10 +213,15 @@ function App() {
 
       const textL100 = row["Texto L=100"];
       if (textL100) {
+        const normalizedTextL100 = normalizeText(textL100);
+
         for (const responsible in responsibleMap) {
           const keywords = responsibleMap[responsible];
           for (const keyword of keywords) {
-            if (typeof textL100 === 'string' && textL100.toLowerCase().includes(keyword.toLowerCase())) {
+            const normalizedKeyword = normalizeText(keyword);
+            // Usar regex para correspondência de palavra completa (word boundary)
+            const regex = new RegExp(`\\b${normalizedKeyword}\\b`, 'i');
+            if (regex.test(normalizedTextL100)) {
               return { ...row, "Responsável": responsible };
             }
           }
